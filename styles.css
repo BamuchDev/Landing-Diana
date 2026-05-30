@@ -778,6 +778,17 @@ ul {
 /* RESPONSIVE ----- */
 
 /* Tablet: pantallas menores a 900px */
+@media (max-width: 600px) {
+    .hero-float-card {
+        display: none;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 @media (max-width: 900px) {
     .hero {
     flex-direction: column; /* Las columnas se apilan verticalmente */
