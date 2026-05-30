@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD (FUENTES, ICONOS, CSS) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estudiante de Estomatología
+    especializada en la salud bucal. Agenda tu consulta por WhatsApp.">
+    <title>Diana Reyes Rivera | Estomatología</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVBAR (BARRA, LOGO, ENLACES, WHATS Y MENU) -->
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+
+            <a href="#Inicio" class="nav-logo">Diana <span>Reyes Rivera</span></a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+
+                <li><a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20gustaría%20agendar%20una%20consulta" class="btn-nav-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i>Agendar Cita
+                </a></li>
+            </ul>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            
+        </div>
+    </nav>
+
+<!-- HERO (SECCIÓN PRINCIPAL) -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle-2"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-tag">Estudiante de Estomatología</span>
+
+        <h1 class="hero-title">
+            Tu sonrisa,<br>
+            <em>mi vocación</em>
+        </h1>
+
+        <p class="hero-subtitle">
+            Atención dental personalizada, con enfoque preventivo y estético.
+            Agenda tu consulta de forma rápida y sencilla.
+        </p>
+
+        <div class="hero-actions">
+            <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20gustaría%20agendar%20una%20consulta"
+                class="btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
+            </a>
+
+            <a href="#servicios" class="btn-secondary">Ver servicios</a>   
+        </div>
+
+        <div class="hero-badges">
+            <div class="badge"><i class="fas fa-graduation-cap"></i> CESES</div>
+            <div class="badge"><i class="fas fa-star"></i> +50 pacientes satisfechos</div>
+            <div class="badge"><i class="fas fa-clock"></i> Respuesta en minutos</div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-photo-frame"></div>
+        <img src="Dianini.jpg" alt="Diana Reyes Rivera" class="hero-img">
+    </div>
+
+    <div class="hero-float-card">
+        <i class="fas fa-tooth"></i>
+        <div>
+            <strong>Consulta disponible</strong>
+            <span>Escríbeme hoy</span>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<!-- SERVICIOS (TARJETAS) -->
+
+<section class="servicios" id="servicios">
+    <div class="container">
+
+        <div class="section-header">
+            <span class="section-tag">Lo que hago</span>
+            <h2 class="section-title">Servicios</h2>
+            <p class="section-subtitle">Atención enfocada en tu salud y bienestar bucal</p>
+        </div>
+
+        <div class="servicios-grid">
+
+            
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-search"></i></div>
+                <h3>Diagnóstico y Evaluación</h3>
+                <p>Evaluación completa de tu salud bucal para detectar problemas a tiempo y prevenirlos.</p>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-tooth"></i></div>
+                <h3>Limpieza dental</h3>
+                <p>Eliminación de sarro y placa bacteriana para mantener tus encías y dientes saludables.</p>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-smile"></i></div>
+                <h3>Estética Dental</h3>
+                <p>Blanqueamientos y carillas para mejorar la apariencia de tu sonrisa.</p>               
+            </div>
+            
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-band-aid"></i></div>
+                <h3>Obturaciones</h3>
+                <p>Tratamiento para reparar dientes dañados o afectados por caries.</p>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-child"></i></div>
+                <h3>Odontología Preventiva</h3>
+                <p>Educación y técnicas para que tú y tu familia mantengan una boca sana a largo plazo.</p>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-icon"><i class="fas fa-comment-medical"></i></div>
+                <h3>Orientación personalizada</h3>
+                <p>Consejos específicos para tu caso: alimentación, higiene y hábitos bucales.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE MI (PRESENTACIÓN) -->
+
+<section class="sobre-mi" id="sobre-mi">
+    <div class="container sobre-mi-grid">
+
+        <div class="sobre-mi-img">
+            <img src="Dianini2.jpg" alt="Diana Reyes Rivera" class="sobre-mi-foto">
+
+        <div class="sobre-mi-stat">
+            <strong>5°</strong>
+            <span>Semestre en curso</span>
+        </div>
+    </div>
+
+    <div class="sobre-mi-text">
+        <span class="section-tag">Sobre mí</span>
+        <h2 class="section-title">Hola, soy Diana!</h2>
+
+        <p>Soy estudiante de Estomatología apasionada por devolver la confianza
+            a las personas a través de una sonrisa sana. Creo firmemente que la
+            salud bucal impacta en la calidad de vida de cada persona.</p>
+
+        <p>Mi enfoque es siempre humano: te explico todo lo que necesitas saber,
+            sin complicarnos, y trabajamos juntos para lograr el mejor resultado
+            para ti.</p>
+
+        <ul class="sobre-mi-lista">
+            <li><i class="fas fa-check-circle"></i> Trato amable y sin juicios</li>
+            <li><i class="fas fa-check-circle"></i> Explicación clara de cada procedimiento</li>
+            <li><i class="fas fa-check-circle"></i> Precios accesibles durante mis prácticas</li>
+            <li><i class="fas fa-check-circle"></i> Supervisión de profesores certificados</li>
+        </ul>
+
+        <a href="https://wa.me/521XXXXXXXXXX?text=Hola%20Andrea,%20me%20gustaría%20conocer%20más"
+            class="btn btn-primary" target="_blank">
+            <i class="fab fa-whatsapp"></i> Escríbeme
+        </a>
+    </div>
+    </div>
+
+</section>
+
+<!-- FAQ (PREGUNTAS FRECUENTES) -->
+
+<section class="faq" id="faq">
+    <div class="container faq-container">
+
+
+        <div class="section-header">
+            <span class="section-tag">Dudas comunes</span>
+            <h2 class="section-title">Preguntas frecuentes</h2>
+        </div>
+
+        <div class="faq-lista">
+
+            <div class="faq-item">
+                <button class="faq-pregunta">
+                    ¿Es doloroso el tratamiento?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-respuesta">
+                <p>No, durante mis prácticas siempre se utiliza anestesia local para garantizar tu comodidad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-pregunta">
+                    ¿Cuánto tiempo dura una consulta?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-respuesta">
+                <p>Generalmente entre 30 minutos y 1 hora, dependiendo del procedimiento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-pregunta">
+                    ¿Cuánto cuesta la consulta?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-respuesta">
+                <p>Los precios varían según el procedimiento, pero siempre trato de ofrecer opciones accesibles durante mis prácticas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-pregunta">
+                    ¿Cómo agendo una consulta?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-respuesta">
+                <p>Puedes agendar una consulta enviando un mensaje por WhatsApp con el horario que prefieras.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- CONTACTO (WHATS Y REDES SOCIALES) -->
+
+<section class="cta" id="contacto">
+    <div class="container cta-content">
+        <span class="section-tag">Lista para empezar?</span>
+        <h2>Tu sonrisa merece atención profesional</h2>
+        <p>Escríbeme hoy y agenda tu consulta. Sin esperar largas y sin complicaciones.</p>
+
+        <a href="https://wa.me/521XXXXXXXXXX?text=Hola%20Andrea,%20me%20gustaría%20agendar%20una%20consulta"
+            class="btn btn-cta" target="_blank">
+            <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
+        </a>
+
+        <div class="cta-redes">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Tik Tok"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER (LOGO) -->
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <p class="footer-logo">Diana <span> Reyes Rivera</span></p>
+        <p class="footer-copy">&copy; 2026 Diana Reyes Rivera. Todos los derechos reservados.</p>
+        <a href="#inicio" class="footer-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT (INTERACTIVIDAD) -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

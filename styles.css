@@ -1,0 +1,853 @@
+/* VARIABLES ----- */
+
+:root {
+    --verde: #2a7d5f; /* Color principal */
+    --verde-claro: #4eaf87; /* Hover / acento */
+    --verde-suave: #eaf5f0; /* Fondos de sección */
+    --crema: #fdfcf8; /* Fondo general */
+    --oscuro: #1a1a2e; /* Textos principales */
+    --gris: #6b7280; /* Textos secundarios */
+    --gris-borde: #e5e7eb; /* Bordes sutiles */
+    --blanco: #ffffff;
+
+    --fuente-titulo: "Cormorant Garamond", serif; /* Para H1, H2 */
+    --fuente-cuerpo: "DM Sans", sans-serif; /* Para párrafos */
+
+    --sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
+    --sombra-md: 0 6px 24px rgba(0, 0, 0, 0.1);
+    --sombra-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+
+    --radio: 16px; /* Redondez de tarjetas */
+    --transicion: 0.3s ease; /* Velocidad de animaciones */
+}
+
+/* RESET ----- */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* El padding NO agranda el elemento */
+}
+
+html {
+    scroll-behavior: smooth; /* Scroll suave al hacer clic en links de nav */
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--crema);
+    color: var(--oscuro);
+    line-height: 1.6; /* Espacio entre líneas de texto */
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+img {
+    max-width: 100%; /* Las imágenes nunca se salen de su contenedor */
+    display: block;
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado por defecto de links */
+    color: inherit;
+}
+
+ul {
+    list-style: none; /* Quita los puntos de listas */
+}
+
+/* BOTONES ----- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 50px; /* Píldora */
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: var(--transicion);
+}
+
+/* Botón verde sólido */
+.btn-primary {
+    background: var(--verde);
+    color: var(--blanco);
+}
+.btn-primary:hover {
+    background: var(--verde-claro);
+    transform: translateY(-2px); /* Sube 2px al pasar el mouse */
+    box-shadow: var(--sombra-md);
+}
+
+/* Botón contorno */
+.btn-secondary {
+    background: transparent;
+    color: var(--verde);
+    border: 2px solid var(--verde);
+}
+.btn-secondary:hover {
+    background: var(--verde-suave);
+}
+
+/* Botón grande para CTA final */
+.btn-cta {
+    background: var(--blanco);
+    color: var(--verde);
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    box-shadow: var(--sombra-lg);
+}
+.btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+}
+
+/* ENCABEZADOS DE SECCIÓN ----- */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+/* Etiqueta pequeña de color encima del título */
+.section-tag {
+    display: inline-block;
+    background: var(--verde-suave);
+    color: var(--verde);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(2rem, 4vw, 3rem); /* Se ajusta según el ancho de pantalla */
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    color: var(--gris);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* NAVBAR ----- */
+.navbar {
+  position: fixed; /* Se queda fija aunque hagas scroll */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Encima de todo */
+    padding: 1.25rem 0;
+    transition: var(--transicion);
+    background: transparent; /* Al inicio es transparente */
+}
+
+/* Clase que JS agrega cuando haces scroll — se vuelve blanca */
+.navbar.scrolled {
+    background: rgba(253, 252, 248, 0.95);
+    backdrop-filter: blur(12px); /* Efecto vidrio esmerilado */
+    box-shadow: var(--sombra-sm);
+    padding: 0.85rem 0;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--oscuro);
+}
+.nav-logo span {
+  color: var(--verde); /* La segunda palabra en verde */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--oscuro);
+    font-weight: 400;
+    transition: color var(--transicion);
+}
+.nav-links a:hover {
+    color: var(--verde);
+}
+
+/* Botón de WhatsApp dentro del nav */
+.btn-nav-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--verde);
+    color: var(--blanco) !important;
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    transition: background var(--transicion) !important;
+}
+.btn-nav-wa:hover {
+    background: var(--verde-claro) !important;
+}
+
+/* Botón hamburguesa — solo visible en móvil */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--oscuro);
+    border-radius: 2px;
+    transition: var(--transicion);
+}
+
+/* HERO ----- */
+.hero {
+  min-height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 8% 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Círculos decorativos de fondo (CSS puro, sin imágenes) */
+.hero-bg-circle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--verde-suave), transparent 70%);
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+  pointer-events: none; /* No bloquea clics */
+}
+.hero-bg-circle--2 {
+    width: 300px;
+    height: 300px;
+    bottom: 0;
+    left: -50px;
+    top: auto;
+    right: auto;
+}
+
+.hero-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+
+  /* Animación de entrada al cargar */
+    animation: fadeInUp 0.8s ease both;
+}
+
+/* Etiqueta verde arriba del H1 */
+.hero-tag {
+    display: inline-block;
+    background: var(--verde-suave);
+    color: var(--verde);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-title {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    color: var(--oscuro);
+}
+
+/* La palabra en cursiva del título */
+.hero-title em {
+    font-style: italic;
+    color: var(--verde);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--gris);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+/* Badges de credenciales */
+.hero-badges {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--gris);
+    box-shadow: var(--sombra-sm);
+}
+.badge i {
+    color: var(--verde);
+}
+
+/* Lado derecho del hero: foto */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeInRight 0.9s ease 0.2s both;
+}
+
+/* Marco de la foto */
+.hero-photo-frame {
+    width: 420px;
+    height: 520px;
+    border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; /* Forma orgánica */
+    overflow: hidden;
+    border: 5px solid var(--verde-suave);
+    box-shadow: var(--sombra-lg);
+}
+.hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen llena sin deformarse */
+    object-position: top; /* Centra en la parte superior (cara) */
+}
+
+/* Tarjeta flotante */
+.hero-float-card {
+    position: absolute;
+    bottom: 2rem;
+    left: -1rem;
+    background: var(--blanco);
+    border-radius: var(--radio);
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: var(--sombra-md);
+    font-size: 0.85rem;
+    animation: float 3s ease-in-out infinite; /* Animación de flotar */
+}
+.hero-float-card i {
+    font-size: 1.5rem;
+    color: var(--verde);
+}
+.hero-float-card strong {
+    display: block;
+    font-weight: 600;
+}
+.hero-float-card span {
+    color: var(--gris);
+    font-size: 0.75rem;
+}
+
+/* SERVICIOS ----- */
+.servicios {
+    padding: 6rem 0;
+    background: var(--blanco);
+}
+
+/* Grid de 3 columnas */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.servicio-card {
+    background: var(--crema);
+    border: 1px solid var(--gris-borde);
+    border-radius: var(--radio);
+    padding: 2rem 1.75rem;
+    transition: var(--transicion);
+}
+.servicio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-md);
+    border-color: var(--verde-suave);
+}
+
+.servicio-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--verde-suave);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    color: var(--verde);
+}
+
+.servicio-card h3 {
+    font-family: var(--fuente-titulo);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.servicio-card p {
+    color: var(--gris);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* SOBRE MÍ ----- */
+.sobre-mi {
+    padding: 6rem 0;
+    background: var(--verde-suave);
+}
+
+/* 2 columnas: foto | texto */
+.sobre-mi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.sobre-mi-img {
+    position: relative;
+}
+
+.sobre-mi-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 24px;
+    box-shadow: var(--sombra-lg);
+}
+
+/* Tarjeta de dato flotante sobre la foto */
+.sobre-mi-stat {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--verde);
+    color: var(--blanco);
+    border-radius: var(--radio);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--sombra-md);
+}
+.sobre-mi-stat strong {
+    display: block;
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+.sobre-mi-stat span {
+    font-size: 0.78rem;
+    opacity: 0.85;
+}
+
+.sobre-mi-text .section-title {
+    text-align: left;
+}
+
+.sobre-mi-text p {
+    color: var(--gris);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Lista con íconos de check */
+.sobre-mi-lista {
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.sobre-mi-lista li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+}
+.sobre-mi-lista i {
+    color: var(--verde);
+}
+
+/* FAQ ----- */
+.faq {
+    padding: 6rem 0;
+    background: var(--verde-suave);
+}
+
+.faq-container {
+    max-width: 700px;
+}
+
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    border: 1px solid var(--gris-borde);
+    overflow: hidden; /* La respuesta se oculta limpiamente */
+}
+
+/* Botón de la pregunta */
+.faq-pregunta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--oscuro);
+    text-align: left;
+    transition: color var(--transicion);
+}
+.faq-pregunta:hover {
+    color: var(--verde);
+}
+
+/* Flecha que rota cuando la pregunta se abre */
+.faq-pregunta i {
+    transition: transform var(--transicion);
+    color: var(--verde);
+    flex-shrink: 0;
+}
+.faq-item.abierto .faq-pregunta i {
+  transform: rotate(180deg); /* JS agrega la clase "abierto" */
+}
+
+/* Respuesta — inicia cerrada, JS cambia el max-height */
+.faq-respuesta {
+  max-height: 0; /* Colapsada */
+    overflow: hidden;
+    transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
+}
+.faq-item.abierto .faq-respuesta {
+  max-height: 300px; /* Abierta */
+    padding-bottom: 1.25rem;
+}
+
+.faq-respuesta p {
+    padding: 0 1.5rem;
+    color: var(--gris);
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+/* CTA FINAL ----- */
+.cta {
+    padding: 7rem 0;
+    background: linear-gradient(135deg, var(--verde) 0%, #1a5c45 100%);
+    text-align: center;
+    color: var(--blanco);
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.cta .section-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--blanco);
+}
+
+.cta h2 {
+    font-family: var(--fuente-titulo);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.cta p {
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+}
+
+/* Redes sociales */
+.cta-redes {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+.cta-redes a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--blanco);
+    transition: background var(--transicion);
+}
+.cta-redes a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* FOOTER ----- */
+.footer {
+    background: var(--oscuro);
+    padding: 2rem 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-logo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.2rem;
+    color: var(--blanco);
+}
+.footer-logo span {
+    color: var(--verde-claro);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+}
+
+/* Botón "Subir al inicio" */
+.footer-top {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanco);
+    transition: background var(--transicion);
+}
+.footer-top:hover {
+    background: var(--verde);
+}
+
+/* BOTÓN WHATSAPP FLOTANTE ----- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    background: #25d366; /* Verde oficial de WhatsApp */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--blanco);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition:
+    transform var(--transicion),
+    box-shadow var(--transicion);
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+}
+
+/* ANIMACIONES ----- */
+
+/* Entrada desde abajo */
+@keyframes fadeInUp {
+    from {
+    opacity: 0;
+    transform: translateY(30px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+/* Entrada desde la derecha */
+@keyframes fadeInRight {
+    from {
+    opacity: 0;
+    transform: translateX(40px);
+    }
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+}
+
+/* Flotación de la tarjeta del hero */
+@keyframes float {
+    0%,
+    100% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-10px);
+    }
+}
+
+/* Animación reutilizable para secciones al hacer scroll */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE ----- */
+
+/* Tablet: pantallas menores a 900px */
+@media (max-width: 900px) {
+    .hero {
+    flex-direction: column; /* Las columnas se apilan verticalmente */
+    text-align: center;
+    padding: 7rem 5% 4rem;
+    gap: 3rem;
+    }
+    .hero-content {
+    max-width: 100%;
+    }
+    .hero-actions {
+    justify-content: center;
+    }
+    .hero-badges {
+    justify-content: center;
+    }
+    .hero-image {
+    order: -1;
+    } /* Sube la foto en móvil */
+    .hero-photo-frame {
+    width: 280px;
+    height: 340px;
+    }
+
+    .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonios-grid {
+    grid-template-columns: 1fr;
+    }
+    .sobre-mi-grid {
+    grid-template-columns: 1fr;
+    }
+    .sobre-mi-stat {
+    right: 0;
+    }
+}
+
+/* Móvil: pantallas menores a 600px */
+@media (max-width: 600px) {
+    .servicios-grid {
+    grid-template-columns: 1fr;
+    }
+
+  /* Mostrar botón hamburguesa, ocultar links */
+    .nav-toggle {
+    display: flex;
+    }
+    .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Fuera de pantalla por defecto */
+    height: 100vh;
+    width: 75%;
+    max-width: 300px;
+    background: var(--blanco);
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: var(--sombra-lg);
+    transition: right var(--transicion);
+    z-index: 999;
+    }
+    /* Clase que JS agrega para mostrar el menú */
+    .nav-links.abierto {
+    right: 0;
+    }
+
+    .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    }
+}
