@@ -15,8 +15,8 @@ window.addEventListener('scroll', () => {
 
 // MENU (PARA EL CELULAR)-----
 
-const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('navLinks');
+const navToggle = document.getElementById('nav-toggle');
+const navLinks  = document.getElementById('nav-links');
 
 // Al hacer clic en el botón hamburguesa
 navToggle.addEventListener('click', () => {
